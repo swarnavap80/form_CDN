@@ -1,0 +1,116 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Croissant+One&family=Hedvig+Letters+Serif:opsz@12..24&family=Kanit:ital,wght@0,300;1,100;1,200&family=Playfair+Display:ital@1&family=Poppins:wght@800&family=Protest+Riot&family=Roboto+Condensed:ital,wght@1,300&display=swap");
+      body {
+        margin: 0;
+        background: #eee;
+      }
+      #frm {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 105px;
+        z-index: 0;
+        position: relative;
+      }
+      #frm h1 {
+        color: #7f27ff;
+      }
+      input {
+        height: 4vh;
+        width: 25vw;
+        font-family: "Croissant One", serif;
+        /* z-index: 2; */
+        
+      }
+      #btn {
+        margin-top: 10px;
+        margin-left: 47%;
+        width: 95px;
+        height: 50px;
+        border-radius: 50px;
+        background-color: #7f27ff;
+        color: white;
+        font-size: 15px;
+        border-style: none;
+        cursor: pointer;
+      }
+      .sucess {
+        
+        height: 150px;
+        width: 250px;
+        background-color: #16ff00;
+        margin-bottom: 25px;
+        margin-top: -350px;
+        border-radius: 50px;
+        margin-left: 42%;
+        z-index: 99;
+        position: relative;
+        
+
+      }
+      .sucess h3 {
+        color: black;
+        border-radius: 60px;
+        padding: 30px 80px;
+        /* z-index: 1; */
+        
+      }
+      .sucess button {
+        margin-left: 95px;
+        position: relative;
+        
+        
+      }
+
+    </style>
+    <!-- // main content -->
+  </head>
+  <body>
+    <div id="app">
+      <form id="frm">
+        <h1>Registration Form</h1>
+         <input type="text" placeholder="Nane" required />
+        <hr />
+         <input type="text" placeholder="Email" required />
+        <hr />
+         <input type="text" placeholder="Phone" required />
+        <hr />
+         <input type="text" placeholder="Adsress" required />
+        <hr />
+         <input type="text" placeholder="Country" required />
+        <hr />
+        <input type="text" placeholder="City" required />
+        <hr />
+      </form>
+      <button @click="show = true" id="btn" type="submit">Submit</button>
+      <div v-if="show" class="sucess">
+        <h3>Form submitted Sucessfully</h3>
+        <button @click="show = false">Close</button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          const show = ref(false);
+
+          const submit = show.value;
+
+          return {
+            show,
+            submit,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
